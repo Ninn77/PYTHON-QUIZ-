@@ -1,8 +1,8 @@
 quiz = [
-    {"question": "1. Which of the following is not a fruit?",
-    "options": ["A. Apple", "B. Cabbage", "C. Mango", "D. Pineapple"],
-    "answer": "B"},
-    {"question": "2. What color is at the top of a rainbow? :  ",
+    {"question": "1. Which of the following is not a fruit?",                   # RIYAL list comprehension. It uses list [], set {}, and tuple ().
+    "options": ["A. Apple", "B. Cabbage", "C. Mango", "D. Pineapple"],          # this is the quiz' entire content in one list. Each element (question) is written inside a set {}.
+    "answer": "B"},                                                             # questions. options. answers. These are the 3 things inside each element. I could call them "subbies" but thas too zesty.
+    {"question": "2. What color is at the top of a rainbow? :  ",               # PLEASE remember to add commas between the elements and the sub-elements (subbies).
     "options": ["A. Purple", "B. Yellow", "C. Green", "D. Red"],
     "answer": "D"},
     {"question": "3. How many bones are in the human body?  ",
@@ -16,39 +16,39 @@ quiz = [
     "answer": "B"}
 ]
 
-guesses = []
-score = 0
+guesses = []                                                                    # a list to add-in all the user's input. Keep in mind, this program is tweaked so that only letters of the answers are taken.
+score = 0                                                                       # score variable that is changed upon each user answer.
 
 print("========== QUIZ START ==========\n")
 
-for q in quiz:
-    print(q["question"])
+for q in quiz:                                                                  # a for loop that accesses each element of the list by randomly naming it (in this case, "q").                                                                                                                       
+    print(q["question"])                                                        # typing in 'q["question"]' accesses every subbie that is named "question" in the element. You can name this anything.
     for option in q["options"]:
         print(option)
 
     # Validate user input
-    valid_letters = [opt[0] for opt in q["options"]]  # Extract first letter of each option
-    while True:
+    valid_letters = [opt[0] for opt in q["options"]]  # Extract first letter of each option           # krazy list comprehension. "opt" is just a random name. 'opt[0]' gives us the first letter of each supersubbie.
+    while True:                                                                                       #^ since the first letter of our supersubbies are the letters of the answers, our program will need this bit.
         guess = input("📝Enter your answer (letter only): ").upper()
-        if guess in valid_letters:
-            break
-        else:
+        if guess in valid_letters:                                                                    #^ that list comprehension was used to make a variable called "valid_letters"...
+            break                                                                                     #^...which makes the program accept only the letters of the answers. We literally set this program up to do such.
+        else:                                     
             print("💔Invalid input. Please enter only:", ", ".join(valid_letters))
 
-    guesses.append(guess)
+    guesses.append(guess)                                                                             # every user input gets added-into that "guesses" list in line 19.
 
     if guess == q["answer"]:
         print("✅CORRECT!\n")
-        score += 1
+        score += 1                                                                                    # if user's guess is equal to the quiz' element's subbie, then it is correct and the score is + 1.
     else:
-        print(f"❌INCORRECT! The correct answer is {q['answer']}.\n")
+        print(f"❌INCORRECT! The correct answer is {q['answer']}.\n")                                
 
 # Results
-print("========== QUIZ RESULTS ==========")
-print("Your answers: ", " ".join(guesses))
-correct_answers = " ".join([q["answer"] for q in quiz])
-print("Correct answers:", correct_answers)
-print(f"You scored {score}/{len(quiz)}")
+print("========== QUIZ RESULTS ==========")       
+print("Your answers: ", " ".join(guesses))                                                            # this shows the user what their guesses were. That comma written there is to separate each guess with a comma.
+correct_answers = " ".join([q["answer"] for q in quiz])                                               # correct_answers variable must be made to make them printable. they are separated by a space just like the ^^^.
+print("Correct answers:", correct_answers)                                                            # after creating a "correct_answers" variable, use the print command to actually display them.
+print(f"You scored {score}/{len(quiz)}")                                                              # displays how many items the user got correct. Idk why it's divided by the length of "quiz". Watch BroCode lol.
 
-percentage = score / len(quiz) * 100
-print(f"Your percentage is: {percentage:.2f}%")
+percentage = score / len(quiz) * 100                                                                  # shows user score with %. Pretty cool, right?
+print(f"Your percentage is: {percentage:.2f}%")                                                       # notice that format specifier. Use a colon to invoke said formats.
