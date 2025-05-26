@@ -1,0 +1,54 @@
+quiz = [
+    {"question": "1. Which of the following is not a fruit?",
+    "options": ["A. Apple", "B. Cabbage", "C. Mango", "D. Pineapple"],
+    "answer": "B"},
+    {"question": "2. What color is at the top of a rainbow? :  ",
+    "options": ["A. Purple", "B. Yellow", "C. Green", "D. Red"],
+    "answer": "D"},
+    {"question": "3. How many bones are in the human body?  ",
+    "options": ["A. 206", "B. 207", "C. 208", "D. 209"],
+    "answer": "A"},
+    {"question": "4. Which country is in Asia:  ",
+    "options": ["A. Portugal", "B. Japan", "C. America", "D. United Arab Emirates"],
+    "answer": "B"},
+    {"question": "5. What is the first layer in the atmosphere:  ",
+    "options": ["A. Troposphere", "B. Thermosphere ", "C. Space ", "D. Mesosphere", "E. Exosphere"],
+    "answer": "B"}
+]
+
+guesses = []
+score = 0
+
+print("========== QUIZ START ==========\n")
+
+for q in quiz:
+    print(q["question"])
+    for option in q["options"]:
+        print(option)
+
+    # Validate user input
+    valid_letters = [opt[0] for opt in q["options"]]  # Extract first letter of each option
+    while True:
+        guess = input("📝Enter your answer (letter only): ").upper()
+        if guess in valid_letters:
+            break
+        else:
+            print("💔Invalid input. Please enter only:", ", ".join(valid_letters))
+
+    guesses.append(guess)
+
+    if guess == q["answer"]:
+        print("✅CORRECT!\n")
+        score += 1
+    else:
+        print(f"❌INCORRECT! The correct answer is {q['answer']}.\n")
+
+# Results
+print("========== QUIZ RESULTS ==========")
+print("Your answers: ", " ".join(guesses))
+correct_answers = " ".join([q["answer"] for q in quiz])
+print("Correct answers:", correct_answers)
+print(f"You scored {score}/{len(quiz)}")
+
+percentage = score / len(quiz) * 100
+print(f"Your percentage is: {percentage:.2f}%")
