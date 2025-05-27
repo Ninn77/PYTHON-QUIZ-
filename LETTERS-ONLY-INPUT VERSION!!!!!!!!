@@ -13,7 +13,7 @@ quiz = [
     "answer": "B"},
     {"question": "5. What is the first layer in the atmosphere:  ",
     "options": ["A. Troposphere", "B. Thermosphere ", "C. Space ", "D. Mesosphere", "E. Exosphere"],
-    "answer": "B"}
+    "answer": "A"}
 ]
 
 guesses = []                                                                    # a list to add-in all the user's input. Keep in mind, this program is tweaked so that only letters of the answers are taken.
