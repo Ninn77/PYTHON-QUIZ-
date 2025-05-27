@@ -45,10 +45,10 @@ for q in quiz:                                                                  
 
 # Results
 print("========== QUIZ RESULTS ==========")       
-print("Your answers: ", " ".join(guesses))                                                            # this shows the user what their guesses were. That comma written there is to separate each guess with a comma.
-correct_answers = " ".join([q["answer"] for q in quiz])                                               # correct_answers variable must be made to make them printable. they are separated by a space just like the ^^^.
-print("Correct answers:", correct_answers)                                                            # after creating a "correct_answers" variable, use the print command to actually display them.
-print(f"You scored {score}/{len(quiz)}")                                                              # displays how many items the user got correct. Idk why it's divided by the length of "quiz". Watch BroCode lol.
+print("Your answers: ", " ".join(guesses))                        # shows user's guesses. That comma is ACTUALLY separating the "Your answers: " and the " ".join((guesses))
+correct_answers = " ".join([q["answer"] for q in quiz])           # correct_answers variable must be made to make them printable. they are separated by a space; expressed by that empty " " before the .join().
+print("Correct answers:", correct_answers)                        # after creating a "correct_answers" variable, use the print command to actually display them. the comma kinda functions as an f string.
+print(f"You scored {score}/{len(quiz)}")                          # displays how many items the user got correct. it's divided by the length of "quiz" because there are 5 elements. Watch BroCode lol 2:53:59
 
-percentage = score / len(quiz) * 100                                                                  # shows user score with %. Pretty cool, right?
-print(f"Your percentage is: {percentage:.2f}%")                                                       # notice that format specifier. Use a colon to invoke said formats.
+percentage = score / len(quiz) * 100                              # shows user score with %. Pretty cool, right?
+print(f"Your percentage is: {percentage:.2f}%")                   # notice that format specifier. Use a colon to invoke said formats.
